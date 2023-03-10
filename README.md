@@ -2,3 +2,4 @@
 
 [![Actions Status](https://github.com/grafwaller/frontend-project-44/workflows/hexlet-check/badge.svg)](https://github.com/grafwaller/frontend-project-44/actions)
 https://asciinema.org/a/sQfyGnfBp4mv1ntm8o5NyQIjw
+https://asciinema.org/a/tdLTkCeuUsYmBForVHudNLFNC
