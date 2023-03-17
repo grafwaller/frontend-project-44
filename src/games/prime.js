@@ -1,6 +1,6 @@
 import readlineSync from 'readline-sync';
 
-const generateRandomNumber = () => Math.round(Math.random() * 10);
+import generateRandomNumber from '../getrandom.js';
 
 const isPrime = (number) => {
   if (number <= 1) {
