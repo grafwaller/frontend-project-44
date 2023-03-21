@@ -1,4 +1,4 @@
-import readlineSync from 'readline-sync';
+import getGame from '../index.js';
 
 import generateRandomNumber from '../getrandom.js';
 
@@ -17,8 +17,6 @@ const generateRandomIndex = () => {
 
 const taskGame = 'What number is missing in the progression?'; // задача игры
 
-const numberOfRounds = 3;
-
 const startGame = () => {
   const number1 = generateRandomNumber();
   const number2 = generateRandomNumber();
@@ -26,28 +24,10 @@ const startGame = () => {
   const index = generateRandomIndex();
   const answer = arr[index];
   arr[index] = '..';
-  const questionArray = arr.join(' ');
-  return [answer, questionArray];
+  const question = arr.join(' ');
+  return [question, answer];
 };
 
-const getGame = () => {
-  console.log('Welkome to the Brain Games!');
-  const userName = readlineSync.question('May I have your name?  ');
-  console.log(`Hello, ${userName}!`);
-  console.log(taskGame);
-
-  for (let i = 0; i < numberOfRounds; i += 1) {
-    const [answer, questionArray] = startGame();
-    console.log(`Question: ${questionArray}`);
-    const userAnswer = readlineSync.question('Your answer: ');
-    if (userAnswer !== String(answer)) {
-      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${answer}'.`);
-      console.log(`Let's try again, ${userName}!`);
-      return;
-    }
-    console.log('Correct!');
-  }
-  console.log(`Congratulations, ${userName}!`);
+export default () => {
+  getGame(taskGame, startGame);
 };
-
-export default getGame;
