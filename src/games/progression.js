@@ -2,12 +2,12 @@ import getGame from '../index.js';
 
 import generateRandomNumber from '../getrandom.js';
 
-const progression = (x, y) => {
-  const arr = [];
+const getProgression = (x, y) => {
+  const progression = [];
   for (let i = 0; i < 10; i += 1) {
-    arr[i] = x + (y * i);
+    progression[i] = x + (y * i);
   }
-  return arr;
+  return progression;
 };
 
 const generateRandomIndex = () => {
@@ -15,19 +15,19 @@ const generateRandomIndex = () => {
   return index;
 };
 
-const taskGame = 'What number is missing in the progression?'; // задача игры
+const description = 'What number is missing in the progression?'; // задача игры
 
-const startGame = () => {
+const getAndwerAndQuestion = () => {
   const number1 = generateRandomNumber();
   const number2 = generateRandomNumber();
-  const arr = progression(number1, number2);
+  const progression = getProgression(number1, number2);
   const index = generateRandomIndex();
-  const answer = arr[index];
-  arr[index] = '..';
-  const question = arr.join(' ');
+  const answer = progression[index];
+  progression[index] = '..';
+  const question = progression.join(' ');
   return [question, answer];
 };
 
 export default () => {
-  getGame(taskGame, startGame);
+  getGame(description, getAndwerAndQuestion);
 };

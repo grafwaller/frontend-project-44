@@ -20,9 +20,9 @@ const calculation = (number1, number2, action) => {
   }
 };
 
-const taskGame = 'What is the result of the expression?'; // задача игры
+const description = 'What is the result of the expression?'; // задача игры
 
-const startGame = () => {
+const getAndwerAndQuestion = () => {
   const number1 = generateRandomNumber();
   const number2 = generateRandomNumber();
   const action = generateRandomAction();
@@ -32,5 +32,5 @@ const startGame = () => {
 };
 
 export default () => {
-  getGame(taskGame, startGame);
+  getGame(description, getAndwerAndQuestion);
 };

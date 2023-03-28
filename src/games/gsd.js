@@ -2,23 +2,23 @@ import getGame from '../index.js';
 
 import generateRandomNumber from '../getrandom.js';
 
-const greatestCommonDivisor = (x, y) => {
+const getGcd = (x, y) => {
   if (y === 0) {
     return x;
   }
-  return greatestCommonDivisor(y, x % y);
+  return getGcd(y, x % y);
 };
 
-const taskGame = 'Find the greatest common divisor of given numbers.'; // задача игры
+const description = 'Find the greatest common divisor of given numbers.'; // задача игры
 
-const startGame = () => {
+const getAndwerAndQuestion = () => {
   const number1 = generateRandomNumber();
   const number2 = generateRandomNumber();
-  const answer = greatestCommonDivisor(number1, number2);
+  const answer = getGcd(number1, number2);
   const question = `${number1} ${number2}`;
   return [question, answer];
 };
 
 export default () => {
-  getGame(taskGame, startGame);
+  getGame(description, getAndwerAndQuestion);
 };
